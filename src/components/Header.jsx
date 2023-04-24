@@ -48,7 +48,7 @@ const Header = () => {
               <Avatar
                 display={ { base: 'none', md: 'block' } }
                 width={ { base: '100px', lg: '180px' } } height={ { base: '100px', lg: '180px' } }
-                src="/images/profile.jpg" alt="Jude Francis"
+                src="/images/profile.jpg" alt="Oyegbile Praise"
               />
             </Flex>
           </motion.div>
