@@ -30,7 +30,7 @@ const Header = () => {
                   fontSize={ { base: '1.7rem', md: '2.2rem' } } maxW="700" pr="10" mt={ { base: 12, md: 8 } }
                   lineHeight="1.6" verticalAlign="middle"
                 >
-                  I'm <Text as="span" fontWeight="semibold">Oyegbile Praise</Text>, a frontend engineer with a passion
+                  I'm <Text as="span" fontWeight="semibold">Oyegbile Praise</Text>, a full stack developer with a passion
                   for creating beautiful, intuitive, and accessible experiences. Find some of my work below.
                 </Text>
                 <Flex align="center" mt="4">
