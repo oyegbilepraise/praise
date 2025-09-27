@@ -38,30 +38,68 @@ const Project = ({ project, onClick }) => {
 
   return (
     <>
-      <motion.div { ...props }>
-        <Box position="relative" overflow="hidden" rounded={ { base: "sm", md: "lg" } }>
-          <MotionBox layoutId={ `project-${ project.id }` } w="full" h={ { base: '270px', md: '310px' } }>
+      <motion.div {...props}>
+        <Box
+          position="relative"
+          overflow="hidden"
+          rounded={{ base: "sm", md: "lg" }}
+        >
+          <MotionBox
+            layoutId={`project-${project.id}`}
+            w="full"
+            h={{ base: "270px", md: "310px" }}
+          >
             <MotionImage
-              layoutId={ `project-image-${ project.id }` } src={ project.image } w="full" h="full" zIndex="1"
-              rounded={ { base: "sm", md: "lg" } } objectFit="cover"
+              layoutId={`project-image-${project.id}`}
+              src={project.image}
+              w="full"
+              h="full"
+              zIndex="1"
+              rounded={{ base: "sm", md: "lg" }}
+              objectFit="cover"
             />
           </MotionBox>
           <MotionBox
-            cursor="pointer" px="2" py="6" width="full" height="full" display="flex" alignItems="flex-end"
-            whileHover="hover" initial="rest" animate="rest" variants={ card } zIndex="2"
-            position="absolute" inset="0"
+            cursor="pointer"
+            px="2"
+            py="6"
+            width="full"
+            height="full"
+            display="flex"
+            alignItems="flex-end"
+            whileHover="hover"
+            initial="rest"
+            animate="rest"
+            variants={card}
+            zIndex="2"
+            position="absolute"
+            inset="0"
           >
             <MotionBox
-              display="flex" width="300px" backgroundColor="orange.800" color="white" py="3" px="4"
-              position="absolute" bottom="45px" left="50%" transform="translateX(-50%)" rounded="lg"
-              style={ { backdropFilter: "blur(3px)" } }
+              display="flex"
+              width="300px"
+              backgroundColor="orange.800"
+              color="white"
+              py="3"
+              px="4"
+              position="absolute"
+              bottom="45px"
+              left="50%"
+              transform="translateX(-50%)"
+              rounded="lg"
+              style={{ backdropFilter: "blur(3px)" }}
             >
               <Box alignItems="start">
-                <Text fontSize="xs" fontWeight="medium" textTransform="uppercase" lineHeight="1">
-                  { project.category }
+                <Text
+                  fontSize="xs"
+                  fontWeight="medium"
+                  textTransform="uppercase"
+                  lineHeight="1"
+                >
+                  {project.category}
                 </Text>
                 <Text fontSize="md" lineHeight="1" fontWeight="medium" mt="1">
-                  { project.title }
+                  {project.title}
                 </Text>
               </Box>
             </MotionBox>
