@@ -1,10 +1,10 @@
 let projects = [
   {
-    id: "tradepi",
+    id: "Patmus",
     category: "web",
-    title: "Tradepi",
+    title: "Patmus",
     image: "/images/projects/tradepi.png",
-    link: "https://tradepi.com/",
+    link: "https://www.patmus.co",
     description: `PI (Prediction Inteligence) is using AI to predict outcomes to Africas events.`,
   },
   {
