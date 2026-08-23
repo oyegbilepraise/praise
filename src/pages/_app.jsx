@@ -1,4 +1,4 @@
-import { AnimateSharedLayout } from "framer-motion";
+import { LayoutGroup } from "framer-motion";
 import React from "react";
 import { Chakra } from "../components/Chakra";
 import "../styles/global.scss";
@@ -10,9 +10,9 @@ function MyApp({ Component, pageProps }) {
     <MixpanelProvider>
       <Chakra cookies={ pageProps.cookies }>
         <div className="bg">
-          <AnimateSharedLayout type="crossfade">
+          <LayoutGroup>
             <Component { ...pageProps } />
-          </AnimateSharedLayout>
+          </LayoutGroup>
           <Analytics/>
         </div>
       </Chakra>

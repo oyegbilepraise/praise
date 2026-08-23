@@ -1,7 +1,7 @@
 import { Box, forwardRef, Image } from "@chakra-ui/react";
 import { isValidMotionProp, motion } from "framer-motion";
 
-export const MotionBox = motion(
+export const MotionBox = motion.create(
   forwardRef((props, ref) => {
     const chakraProps = Object.fromEntries(
       // do not pass framer props to DOM element
@@ -11,7 +11,7 @@ export const MotionBox = motion(
   })
 );
 
-export const MotionImage = motion(
+export const MotionImage = motion.create(
   forwardRef((props, ref) => {
     const chakraProps = Object.fromEntries(
       // do not pass framer props to DOM element

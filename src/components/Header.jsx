@@ -20,7 +20,7 @@ const Header = () => {
           >
             <Flex
               width="full" justify="space-between" direction={ { base: "column-reverse", md: "row" } }
-              align={ { base: "flex-start", md: "center" } } pt={ { base: "20", md: "24" } } pb="28"
+              align={ { base: "flex-start", md: "center" } } pt={ { base: "20", md: "24" } } pb={ { base: "12", md: "16" } }
             >
               <Box mr={ { base: 0, lg: 5 } } mt={ { base: 6, lg: 0 } }>
                 <Text fontSize={ { base: '1.7rem', md: '2.2rem' } } fontWeight="medium">

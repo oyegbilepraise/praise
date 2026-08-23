@@ -7,16 +7,26 @@ import {
   useColorMode,
   VStack,
   HStack,
-  Icon,
-  Divider,
+  Stack,
 } from "@chakra-ui/react";
+import { keyframes } from "@emotion/react";
 import { motion } from "framer-motion";
-import { HiDownload, HiEye, HiDocumentText } from "react-icons/hi";
+import { HiDownload, HiEye } from "react-icons/hi";
 
-const MotionBox = motion(Box);
+const MotionBox = motion.create(Box);
+
+const blink = keyframes`
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+`;
 
 const CVCard = () => {
   const { colorMode } = useColorMode();
+  const isLight = colorMode === "light";
+
+  const promptColor = isLight ? "gray.400" : "gray.500";
+  const mutedColor = isLight ? "gray.500" : "gray.400";
+  const textColor = isLight ? "gray.800" : "gray.100";
 
   const handleDownloadCV = () => {
     const link = document.createElement("a");
@@ -35,7 +45,7 @@ const CVCard = () => {
   };
 
   return (
-    <Container maxW="6xl" py="20">
+    <Container maxW="6xl" py={{ base: 12, md: 16 }}>
       <MotionBox
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -43,121 +53,139 @@ const CVCard = () => {
         viewport={{ once: true }}
       >
         <Box
-          bg={colorMode === "light" ? "white" : "gray.800"}
+          bg={isLight ? "white" : "#1a1a1a"}
           borderRadius="2xl"
-          p={8}
           shadow="xl"
           border="1px"
-          borderColor={colorMode === "light" ? "gray.200" : "gray.700"}
-          position="relative"
+          borderColor={isLight ? "gray.200" : "whiteAlpha.200"}
           overflow="hidden"
         >
-          {/* Background decoration */}
-          <Box
-            position="absolute"
-            top="-50px"
-            right="-50px"
-            width="150px"
-            height="150px"
-            bg={colorMode === "light" ? "blue.50" : "blue.900"}
-            borderRadius="full"
-            opacity="0.3"
-          />
-
-          <VStack spacing={6} align="stretch" position="relative" zIndex={1}>
-            {/* Header */}
-            <Flex
-              align="center"
-              justify="space-between"
-              flexWrap="wrap"
-              gap={4}
-            >
-              <HStack spacing={3}>
-                <Box
-                  p={3}
-                  bg={colorMode === "light" ? "blue.100" : "blue.900"}
-                  borderRadius="xl"
-                >
-                  <Icon
-                    as={HiDocumentText}
-                    w={6}
-                    h={6}
-                    color={colorMode === "light" ? "blue.600" : "blue.300"}
-                  />
-                </Box>
-                <VStack align="start" spacing={0}>
-                  <Text
-                    fontSize="2xl"
-                    fontWeight="bold"
-                    color={colorMode === "light" ? "gray.800" : "white"}
-                  >
-                    My Resume
-                  </Text>
-                  <Text
-                    fontSize="sm"
-                    color={colorMode === "light" ? "gray.600" : "gray.400"}
-                  >
-                    Full Stack Developer
-                  </Text>
-                </VStack>
-              </HStack>
-            </Flex>
-
-            <Divider
-              borderColor={colorMode === "light" ? "gray.200" : "gray.600"}
-            />
-
-            {/* Description */}
+          {/* Terminal title bar */}
+          <Flex
+            align="center"
+            px={4}
+            py={3}
+            bg={isLight ? "gray.100" : "whiteAlpha.100"}
+            borderBottom="1px"
+            borderColor={isLight ? "gray.200" : "whiteAlpha.200"}
+          >
+            <HStack spacing={2}>
+              <Box w={3} h={3} borderRadius="full" bg={isLight ? "gray.300" : "whiteAlpha.400"} />
+              <Box w={3} h={3} borderRadius="full" bg={isLight ? "gray.400" : "whiteAlpha.500"} />
+              <Box w={3} h={3} borderRadius="full" bg={isLight ? "gray.500" : "whiteAlpha.600"} />
+            </HStack>
             <Text
-              fontSize="md"
-              color={colorMode === "light" ? "gray.700" : "gray.300"}
-              lineHeight="1.6"
+              flex="1"
+              textAlign="center"
+              fontFamily="mono"
+              fontSize="xs"
+              color={mutedColor}
+              userSelect="none"
             >
-              Download my comprehensive resume to learn more about my
-              experience, skills, and projects. It includes detailed information
-              about my technical expertise and professional journey as a full
-              stack developer.
+              praise@portfolio: ~/resume
             </Text>
+            {/* Spacer to keep the title optically centered */}
+            <Box w="52px" />
+          </Flex>
+
+          {/* Terminal body */}
+          <VStack
+            align="stretch"
+            spacing={5}
+            p={{ base: 5, md: 8 }}
+            fontFamily="mono"
+          >
+            <Box>
+              <Text fontSize="sm" color={promptColor}>
+                <Text as="span" mr={2}>$</Text>whoami
+              </Text>
+              <Text
+                fontSize={{ base: "lg", md: "xl" }}
+                fontWeight="bold"
+                color={textColor}
+                mt={1}
+              >
+                Oyegbile Praise{" "}
+                <Text as="span" fontWeight="normal" color={mutedColor}>
+                  — Full Stack Developer
+                </Text>
+              </Text>
+            </Box>
+
+            <Box>
+              <Text fontSize="sm" color={promptColor}>
+                <Text as="span" mr={2}>$</Text>cat resume.pdf
+              </Text>
+              <Text fontSize="sm" color={mutedColor} mt={1} lineHeight="1.8">
+                # Experience, skills and projects — my full journey
+                <br />
+                # as a full stack developer, in one PDF.
+              </Text>
+            </Box>
+
+            <Box>
+              <Text fontSize="sm" color={promptColor}>
+                <Text as="span" mr={2}>$</Text>
+                <Text as="span" color={textColor}>open resume.pdf</Text>
+                <Box
+                  as="span"
+                  display="inline-block"
+                  w="8px"
+                  h="1em"
+                  ml={1}
+                  verticalAlign="text-bottom"
+                  bg={textColor}
+                  animation={`${blink} 1.1s step-end infinite`}
+                />
+              </Text>
+            </Box>
 
             {/* Action Buttons */}
-            <HStack spacing={4} pt={2}>
+            <Stack
+              direction={{ base: "column", sm: "row" }}
+              spacing={4}
+              pt={1}
+              fontFamily="body"
+            >
               <Button
                 onClick={handleDownloadCV}
                 leftIcon={<HiDownload />}
                 size="lg"
-                bg={colorMode === "light" ? "blue.600" : "blue.500"}
-                color="white"
+                width={{ base: "full", sm: "auto" }}
+                bg={isLight ? "gray.800" : "gray.200"}
+                color={isLight ? "white" : "gray.900"}
                 _hover={{
-                  bg: colorMode === "light" ? "blue.700" : "blue.600",
+                  bg: isLight ? "gray.700" : "gray.50",
                   transform: "translateY(-2px)",
                   shadow: "lg",
                 }}
                 _active={{
-                  bg: colorMode === "light" ? "blue.800" : "blue.700",
+                  bg: isLight ? "gray.600" : "gray.400",
                   transform: "translateY(0)",
                 }}
                 borderRadius="xl"
                 px={6}
                 transition="all 0.2s"
               >
-                Download RESUME
+                Download Resume
               </Button>
 
               <Button
                 onClick={handleViewCV}
                 leftIcon={<HiEye />}
                 size="lg"
+                width={{ base: "full", sm: "auto" }}
                 variant="outline"
-                borderColor={colorMode === "light" ? "gray.300" : "gray.600"}
-                color={colorMode === "light" ? "gray.700" : "gray.300"}
+                borderColor={isLight ? "gray.300" : "whiteAlpha.400"}
+                color={isLight ? "gray.700" : "gray.300"}
                 _hover={{
-                  bg: colorMode === "light" ? "gray.50" : "gray.700",
-                  borderColor: colorMode === "light" ? "gray.400" : "gray.500",
+                  bg: isLight ? "blackAlpha.50" : "whiteAlpha.100",
+                  borderColor: isLight ? "gray.400" : "whiteAlpha.500",
                   transform: "translateY(-2px)",
                   shadow: "md",
                 }}
                 _active={{
-                  bg: colorMode === "light" ? "gray.100" : "gray.800",
+                  bg: isLight ? "blackAlpha.100" : "whiteAlpha.200",
                   transform: "translateY(0)",
                 }}
                 borderRadius="xl"
@@ -166,7 +194,7 @@ const CVCard = () => {
               >
                 Preview
               </Button>
-            </HStack>
+            </Stack>
           </VStack>
         </Box>
       </MotionBox>

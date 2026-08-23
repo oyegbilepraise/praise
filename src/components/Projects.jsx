@@ -22,7 +22,7 @@ const Projects = () => {
 
   return (
     <>
-      <Container maxW="full" overflow="hidden" px={{ base: 0, md: 4 }}>
+      <Container maxW="full" overflow="hidden" px={{ base: 0, md: 4 }} py={{ base: 12, md: 16 }}>
         <SimpleGrid
           columns={{ base: 1, md: 2, lg: 3 }}
           spacing={{ base: 4, lg: 4 }}

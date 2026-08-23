@@ -7,6 +7,9 @@ const config = {
 
 const styles = {
   global: (props) => ({
+    html: {
+      scrollBehavior: 'smooth',
+    },
     body: {
       color: mode('gray.900', 'white')(props),
       bg: mode('#f6ffff', '#0e0e0e')(props),
