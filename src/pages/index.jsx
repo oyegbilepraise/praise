@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Header from "../components/Header";
 import Projects from "../components/Projects";
+import MobileApps from "../components/MobileApps.jsx";
 import Navbar from "../components/Navbar";
 import Stack from "../components/Stack.jsx";
 import Experience from "../components/Experience.jsx";
@@ -21,6 +22,9 @@ export default function Home() {
       </Box>
       <Box id="projects">
         <Projects />
+      </Box>
+      <Box id="apps">
+        <MobileApps />
       </Box>
       <Box id="experience">
         <Experience />

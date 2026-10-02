@@ -59,6 +59,7 @@ const categories = [
     label: "mobile",
     items: [
       { name: "Flutter", link: "https://flutter.dev", icon: SiFlutter },
+      { name: "React Native", link: "https://reactnative.dev", icon: RiReactjsFill },
       { name: "Jetpack Compose", link: "https://developer.android.com/compose", icon: SiJetpackcompose },
       { name: "Compose Multiplatform", link: "https://www.jetbrains.com/compose-multiplatform", icon: SiJetpackcompose },
     ],

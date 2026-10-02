@@ -2,12 +2,13 @@ import { useEffect, useState } from "react";
 import NextLink from "next/link";
 import { useRouter } from "next/router";
 import { Box, Flex, Text, VStack, useColorMode } from "@chakra-ui/react";
-import { FiHome, FiUser, FiFolder, FiBriefcase, FiLayers, FiFileText } from "react-icons/fi";
+import { FiHome, FiUser, FiFolder, FiSmartphone, FiBriefcase, FiLayers, FiFileText } from "react-icons/fi";
 
 const sections = [
   { id: "home", href: "/#home", label: "~/home", icon: FiHome },
   { id: "about", href: "/about", label: "~/about", icon: FiUser },
   { id: "projects", href: "/#projects", label: "~/projects", icon: FiFolder },
+  { id: "apps", href: "/#apps", label: "~/apps", icon: FiSmartphone },
   { id: "experience", href: "/#experience", label: "~/experience", icon: FiBriefcase },
   { id: "stack", href: "/#stack", label: "~/stack", icon: FiLayers },
   { id: "resume", href: "/#resume", label: "~/resume", icon: FiFileText },
