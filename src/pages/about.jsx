@@ -1,4 +1,4 @@
-import Head from "next/head";
+import Seo from "../components/Seo.jsx";
 import NextLink from "next/link";
 import { Box, Button, Container, Flex, Image, Text, useColorMode, useDisclosure, VStack } from "@chakra-ui/react";
 import { motion } from "framer-motion";
@@ -25,9 +25,11 @@ const About = () => {
 
   return (
     <>
-      <Head>
-        <title>About — Oyegbile Praise</title>
-      </Head>
+      <Seo
+        title="About"
+        path="/about"
+        description="About Oyegbile Praise — full stack and mobile developer in Lagos, Nigeria, co-founder & CTO of ILEYAH, building with React, Next.js, Flutter, Node.js and AI."
+      />
       <Navbar />
       <SideNav />
 

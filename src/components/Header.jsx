@@ -27,6 +27,7 @@ const Header = () => {
                   Hello! 👋🏽
                 </Text>
                 <Text
+                  as="h1" fontWeight="normal"
                   fontSize={ { base: '1.7rem', md: '2.2rem' } } maxW="700" pr="10" mt={ { base: 12, md: 8 } }
                   lineHeight="1.6" verticalAlign="middle"
                 >
