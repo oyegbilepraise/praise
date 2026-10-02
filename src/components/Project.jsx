@@ -52,6 +52,7 @@ const Project = ({ project, onClick }) => {
             <MotionImage
               layoutId={`project-image-${project.id}`}
               src={project.image}
+              alt={`${project.title} — ${project.category} project`}
               w="full"
               h="full"
               zIndex="1"

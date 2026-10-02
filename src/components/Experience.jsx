@@ -64,7 +64,7 @@ const Experience = () => {
       <Text fontFamily="mono" fontSize="sm" color={isLight ? "gray.500" : "gray.400"}>
         $ git log --oneline experience
       </Text>
-      <Text fontSize={{ base: "1.7rem", md: "2.2rem" }} maxW="550" fontWeight="medium" mt="2">
+      <Text as="h2" fontSize={{ base: "1.7rem", md: "2.2rem" }} maxW="550" fontWeight="medium" mt="2">
         Where I&apos;ve been building
       </Text>
 

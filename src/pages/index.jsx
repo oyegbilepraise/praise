@@ -1,4 +1,5 @@
-import Head from "next/head";
+import Seo from "../components/Seo.jsx";
+import site, { absoluteUrl } from "../lib/seo";
 import Header from "../components/Header";
 import Projects from "../components/Projects";
 import MobileApps from "../components/MobileApps.jsx";
@@ -9,12 +10,35 @@ import CVCard from "../components/CVCard.jsx";
 import SideNav from "../components/SideNav.jsx";
 import { Box, Container, Text } from "@chakra-ui/react";
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": absoluteUrl("/#person"),
+      name: site.name,
+      url: site.url,
+      image: absoluteUrl(site.image),
+      jobTitle: "Full Stack & Mobile Developer",
+      worksFor: { "@type": "Organization", name: "Statisense", url: "https://statisense.co" },
+      address: { "@type": "PostalAddress", addressLocality: "Lagos", addressCountry: "NG" },
+      knowsAbout: ["React", "Next.js", "Vue", "Flutter", "Node.js", "NestJS", "FastAPI", "TypeScript", "AI"],
+      sameAs: site.sameAs,
+    },
+    {
+      "@type": "WebSite",
+      "@id": absoluteUrl("/#website"),
+      name: site.name,
+      url: site.url,
+      publisher: { "@id": absoluteUrl("/#person") },
+    },
+  ],
+};
+
 export default function Home() {
   return (
     <>
-      <Head>
-        <title>Oyegbile Praise</title>
-      </Head>
+      <Seo jsonLd={jsonLd} />
       <Navbar />
       <SideNav />
       <Box id="home">

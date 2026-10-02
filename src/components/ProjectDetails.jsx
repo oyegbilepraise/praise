@@ -52,7 +52,7 @@ const ProjectDetails = ({ project, isOpen, onClose }) => {
                   <Grid w="full" alignItems="center" gridTemplateColumns={ { base: "1fr", md: "1fr" } }>
                     <MotionBox layoutId={ `project-${ project.id }` } w="full">
                       <MotionImage
-                        layoutId={ `project-image-${ project.id }` } src={ project.image } objectFit="cover" rounded="lg"
+                        layoutId={ `project-image-${ project.id }` } src={ project.image } alt={ project.title } objectFit="cover" rounded="lg"
                         w="full"
                       />
                     </MotionBox>

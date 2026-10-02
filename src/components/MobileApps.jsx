@@ -35,7 +35,7 @@ const MobileApps = () => {
       <Text fontFamily="mono" fontSize="sm" color={mutedColor}>
         $ ls ~/apps
       </Text>
-      <Text fontSize={{ base: "1.7rem", md: "2.2rem" }} maxW="550" fontWeight="medium" mt="2">
+      <Text as="h2" fontSize={{ base: "1.7rem", md: "2.2rem" }} maxW="550" fontWeight="medium" mt="2">
         Apps in the stores
       </Text>
 
@@ -57,7 +57,7 @@ const MobileApps = () => {
                 <Text fontFamily="mono" fontSize="xs" textTransform="uppercase" color={mutedColor}>
                   {app.company}
                 </Text>
-                <Text fontSize={{ base: "xl", md: "2xl" }} fontWeight="semibold" mt="1">
+                <Text as="h3" fontSize={{ base: "xl", md: "2xl" }} fontWeight="semibold" mt="1">
                   {app.title}
                 </Text>
                 <Text
